@@ -1,0 +1,9 @@
+# Node modules
+node_modules/
+
+# Logs
+logs/
+*.log
+
+# Docker
+docker-compose.override.yml
