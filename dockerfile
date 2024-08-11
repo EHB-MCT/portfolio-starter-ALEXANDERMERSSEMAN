@@ -17,7 +17,7 @@ COPY . .
 ENV NODE_ENV=production
 
 # Stel de poort in waarop de app draait
-EXPOSE 4000
+EXPOSE 10
 
 # Commando om de app te starten
 CMD ["node", "app.js"]

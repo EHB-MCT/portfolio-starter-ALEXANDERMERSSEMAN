@@ -25,8 +25,8 @@ app.use((err, req, res, next) => {
   res.status(500).send('Something broke!');
 });
 
-// Start de server op de opgegeven poort (uit .env of standaard 4000)
-const PORT = process.env.PORT || 4000;
+// Start de server op de opgegeven poort (uit .env of standaard 10)
+const PORT = process.env.PORT || 10;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
