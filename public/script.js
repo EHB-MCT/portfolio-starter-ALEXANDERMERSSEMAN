@@ -48,4 +48,6 @@ document.addEventListener('DOMContentLoaded', () => {
             addMessage(message); // Ontvang en toon berichten
         });
     }
+
+    
 });
