@@ -1,27 +1,44 @@
+/* Zorg ervoor dat de body geen marges heeft en alles in het midden van het scherm staat */
 body {
-    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
     margin: 0;
+    background-color: #ff0000; /* Achtergrondkleur voor betere zichtbaarheid */
+}
+
+/* Zorg ervoor dat alle elementen in de container gecentreerd zijn */
+.container {
+    text-align: center; /* Tekst en inline elementen centreren */
+    display: flex; /* Gebruik flexbox om alles te centreren */
+    flex-direction: column; /* Zet elementen onder elkaar */
+    align-items: center; /* Centreer horizontaal */
+}
+
+/* Afbeelding styling */
+.title-image {
+    width: 20%; /* Pas de breedte van de afbeelding aan naar wens */
+    height: auto; /* Zorg ervoor dat de hoogte proportioneel blijft */
+    margin-bottom: 20px; /* Ruimte onder de afbeelding */
+}
+
+/* Verwijder standaardmarges en padding van de ul */
+ul#messages {
+    list-style-type: none; /* Verwijder opsommingstekens */
     padding: 0;
-    box-sizing: border-box;
-  }
-  
-  h1 {
-    text-align: center;
-  }
-  
-  input, button {
-    display: block;
-    margin: 10px auto;
+    margin: 0;
+}
+
+/* Input styling */
+input#messageInput {
+    width: 80%; /* Pas de breedte aan naar wens */
     padding: 10px;
-  }
-  
-  ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  li {
-    padding: 5px;
-    border-bottom: 1px solid #ddd;
-  }
-  
+    margin: 10px 0; /* Ruimte boven en onder het invoerveld */
+}
+
+/* Button styling */
+button#sendMessage {
+    padding: 10px 20px;
+    margin-top: 10px; /* Ruimte boven de knop */
+}

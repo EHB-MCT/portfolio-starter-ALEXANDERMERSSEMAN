@@ -2,7 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const http = require('http');
 const { Server } = require('socket.io');
-const routes = require('./src/routes');
+const routes = require('./src/routes'); // Zorg ervoor dat deze module correct is geïmplementeerd
 require('dotenv').config();
 
 const app = express();

@@ -3,14 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Join Chat Room</title>
-  <link rel="stylesheet" href="/styles.css">
+  <title>Chat Room</title>
+  <link rel="stylesheet" href="styles.css"> <!-- Zorg ervoor dat het pad correct is -->
 </head>
 <body>
-  <h1>Join the Chat Room</h1>
-  <input id="roomCode" type="text" placeholder="Enter room code" />
-  <button id="joinRoom">Join Room</button>
-
-  <script src="/script.js"></script>
+  <div class="container">
+    <img src="images/EHB.png" alt="Chat Room Title" style="width: 10%; height: auto; margin-bottom: 20px;"> <!-- Inline CSS voor test -->
+    <ul id="messages"></ul>
+    <input id="messageInput" type="text" placeholder="Type a message" />
+    <button id="sendMessage">Send</button>
+  </div>
+  <script src="script.js"></script> <!-- Zorg ervoor dat het pad correct is -->
 </body>
 </html>
