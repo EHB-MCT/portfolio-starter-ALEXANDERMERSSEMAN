@@ -12,11 +12,12 @@ const io = new Server(server); // Initialiseer Socket.IO met de server
 // Serve statische bestanden vanuit de 'public' map
 app.use(express.static('public'));
 
-// Voeg een route toe voor de root om te bevestigen dat de API draait
+// Voeg een route toe voor de root om de HTML-pagina te serveren
 app.get('/', (req, res) => {
-  res.send('API is running');
+  res.sendFile(__dirname + '/public/index.html');
 });
 
+// Voeg een test route toe
 app.get('/test', (req, res) => {
   res.send('Test route works');
 });
