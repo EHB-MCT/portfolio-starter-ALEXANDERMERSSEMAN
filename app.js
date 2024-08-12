@@ -10,6 +10,10 @@ app.get('/', (req, res) => {
   res.send('API is running');
 });
 
+app.get('/test', (req, res) => {
+  res.send('Test route works');
+});
+
 // Middleware voor het parsen van JSON-verzoeken
 app.use(express.json());
 
