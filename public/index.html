@@ -3,15 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chat Room</title>
-  <link rel="stylesheet" href="styles.css"> <!-- Zorg ervoor dat het pad correct is -->
+  <title>Code Room</title>
+  <link rel="stylesheet" href="main.css"> <!-- Zorg ervoor dat het pad correct is -->
 </head>
 <body>
   <div class="container">
-    <img src="images/EHB.png" alt="Chat Room Title" style="width: 10%; height: auto; margin-bottom: 20px;"> <!-- Inline CSS voor test -->
-    <ul id="messages"></ul>
-    <input id="messageInput" type="text" placeholder="Type a message" />
-    <button id="sendMessage">Send</button>
+    <img src="images/EHB.png" alt="Code Room Title" class="image"> <!-- Gebruik de juiste class-naam -->
+    <input id="roomCode" type="text" placeholder="Enter your year code" /> <!-- Voeg een invoerveld toe met ID 'roomCode' -->
+    <button id="joinRoom">Join your year's chatroom</button> <!-- Gebruik een ID van 'joinRoom' -->
   </div>
   <script src="script.js"></script> <!-- Zorg ervoor dat het pad correct is -->
 </body>

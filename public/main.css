@@ -1,0 +1,50 @@
+/* Zorg ervoor dat de body geen marges heeft en alles in het midden van het scherm staat */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 65vh; /* Verhoog de hoogte van de viewport */
+    margin: 0;
+    background-color: #ffffff; /* Achtergrondkleur voor betere zichtbaarheid */
+}
+
+/* Zorg ervoor dat alle elementen in de container gecentreerd zijn */
+.container {
+    text-align: center; /* Tekst en inline elementen centreren */
+    display: flex; /* Gebruik flexbox om alles te centreren */
+    flex-direction: column; /* Zet elementen onder elkaar */
+    align-items: center; /* Centreer horizontaal */
+}
+
+/* Afbeelding styling */
+.image {
+    width: 33%; /* Pas de breedte van de afbeelding aan naar wens */
+    height: auto; /* Zorg ervoor dat de hoogte proportioneel blijft */
+    margin-bottom: 80px; /* Ruimte onder de afbeelding */
+}
+
+/* Input styling */
+input#roomCode {
+    width: 80%; /* Pas de breedte aan naar wens */
+    padding: 10px;
+    margin: 10px 0; /* Ruimte boven en onder het invoerveld */
+    border: 1px solid #ccc; /* Voeg een rand toe voor betere zichtbaarheid */
+    border-radius: 4px; /* Verhoogde hoekjes voor een modernere look */
+}
+
+/* Button styling */
+button#joinRoom {
+    padding: 10px 20px;
+    margin-top: 10px; /* Ruimte boven de knop */
+    background-color: #007bff; /* Voeg een achtergrondkleur toe */
+    color: #fff; /* Witte tekstkleur */
+    border: none; /* Verwijder de standaard rand */
+    border-radius: 4px; /* Verhoogde hoekjes voor een modernere look */
+    cursor: pointer; /* Cursor veranderen naar pointer bij hover */
+    font-size: 16px; /* Vergroot de tekstgrootte */
+}
+
+/* Button hover effect */
+button#joinRoom:hover {
+    background-color: #0056b3; /* Donkerder blauw bij hover */
+}
