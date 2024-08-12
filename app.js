@@ -5,6 +5,11 @@ require('dotenv').config(); // Laad omgevingsvariabelen uit .env
 
 const app = express();
 
+// Voeg een route toe voor de root om te bevestigen dat de API draait
+app.get('/', (req, res) => {
+  res.send('API is running');
+});
+
 // Middleware voor het parsen van JSON-verzoeken
 app.use(express.json());
 
@@ -25,8 +30,8 @@ app.use((err, req, res, next) => {
   res.status(500).send('Something broke!');
 });
 
-// Start de server op de opgegeven poort (uit .env of standaard 10)
-const PORT = process.env.PORT || 10;
+// Start de server op de opgegeven poort (uit .env of standaard 3450)
+const PORT = process.env.PORT || 3450;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
