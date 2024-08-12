@@ -63,8 +63,8 @@ io.on('connection', (socket) => {
   });
 });
 
-// Start de server op de opgegeven poort (uit .env of standaard 3450)
-const PORT = process.env.PORT || 3450;
+// Start de server op de opgegeven poort (uit .env of standaard 3453)
+const PORT = process.env.PORT || 3453;
 server.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });

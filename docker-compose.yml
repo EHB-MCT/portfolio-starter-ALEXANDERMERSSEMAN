@@ -3,7 +3,7 @@ services:
   app:
     build: .
     ports:
-      - "3450:3450"
+      - "3453:3453"
     volumes:
       - .:/usr/src/app
     environment:
