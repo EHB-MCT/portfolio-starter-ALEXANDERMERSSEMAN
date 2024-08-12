@@ -9,6 +9,9 @@ const app = express();
 const server = http.createServer(app);  // Creëer een HTTP server voor Socket.IO
 const io = new Server(server); // Initialiseer Socket.IO met de server
 
+// Serve statische bestanden vanuit de 'public' map
+app.use(express.static('public'));
+
 // Voeg een route toe voor de root om te bevestigen dat de API draait
 app.get('/', (req, res) => {
   res.send('API is running');
