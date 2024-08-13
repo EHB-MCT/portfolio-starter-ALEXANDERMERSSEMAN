@@ -31,12 +31,13 @@ h1 {
     flex-direction: column;
 }
 
+/* Zorgt ervoor dat de lijst met berichten correct uitgelijnd blijft */
 ul#messages {
-    list-style-type: none; /* Verwijder opsommingstekens */
+    list-style-type: none;
     padding: 0;
     margin: 0;
-    overflow-y: auto; /* Scrollen als de berichtenlijst te groot is */
-    flex-grow: 1; /* Zorg ervoor dat de lijst ruimte opvult */
+    overflow-y: auto;
+    flex-grow: 1;
 }
 
 .message-input {
@@ -65,4 +66,30 @@ button#sendMessage {
 
 button#sendMessage:hover {
     background-color: #0056b3; /* Donkerder blauw bij hover */
+}
+
+/* Berichten die zijn ontvangen van anderen */
+.message.received {
+    background-color: #f1f1f1;
+    color: black;
+    float: left;
+    text-align: left;
+}
+
+/* Styling voor chatberichten */
+.message {
+    max-width: 60%;
+    padding: 10px;
+    border-radius: 15px;
+    margin: 5px 0;
+    clear: both;
+    word-wrap: break-word;
+}
+
+/* Berichten die door de gebruiker zijn verzonden */
+.message.sent {
+    background-color: #007bff;
+    color: white;
+    float: right;
+    text-align: right;
 }
