@@ -6,7 +6,7 @@ const app = express();
 const server = http.createServer(app);
 const io = socketIo(server);
 
-app.use(express.static('public')); // Zorg ervoor dat alle statische bestanden worden geserveerd
+app.use(express.static('public'));
 
 io.on('connection', (socket) => {
     console.log('A user connected');
@@ -16,8 +16,8 @@ io.on('connection', (socket) => {
         console.log(`User joined room ${roomCode}`);
     });
 
-    socket.on('chatMessage', (message, roomCode) => {
-        io.to(roomCode).emit('chatMessage', message);
+    socket.on('chatMessage', ({ message, userName }, roomCode) => {
+        io.to(roomCode).emit('chatMessage', { message, userName }); // Verzend naam en bericht
     });
 
     socket.on('disconnect', () => {

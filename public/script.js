@@ -1,18 +1,25 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const socket = io(); // Verbind met de Socket.IO server
+    const socket = io();
 
     // Code voor index.html
     if (document.getElementById('roomCode') && document.getElementById('joinRoom')) {
         const joinRoomButton = document.getElementById('joinRoom');
         const roomCodeInput = document.getElementById('roomCode');
+        const userNameInput = document.getElementById('userName');
+        const anonymousSwitch = document.getElementById('anonymousSwitch'); // Schuifknop voor anonimiteit
 
         joinRoomButton.addEventListener('click', () => {
             const roomCode = roomCodeInput.value;
-            if (roomCode === 'CHAT-EHB-3dejaars') {
-                // Zet de roomCode in de URL voor de chatpagina
-                window.location.href = `/chat.html?room=${encodeURIComponent(roomCode)}`;
+            let userName = userNameInput.value.trim();
+
+            if (anonymousSwitch.checked) {
+                userName = 'Anoniem'; // Gebruik 'Anoniem' als de gebruiker de schuifknop heeft ingeschakeld
+            }
+
+            if (roomCode === 'CHAT-EHB-3dejaars' && (userName || anonymousSwitch.checked)) {
+                window.location.href = `/chat.html?room=${encodeURIComponent(roomCode)}&name=${encodeURIComponent(userName)}`;
             } else {
-                alert('Invalid room code. Please try again.');
+                alert('Invalid room code or name. Please try again.');
             }
         });
     }
@@ -23,31 +30,30 @@ document.addEventListener('DOMContentLoaded', () => {
         const sendMessageButton = document.getElementById('sendMessage');
         const messagesList = document.getElementById('messages');
 
-        // Verkrijg roomCode uit de URL
         const urlParams = new URLSearchParams(window.location.search);
         const roomCode = urlParams.get('room');
-        if (roomCode) {
-            socket.emit('joinRoom', roomCode); // Join de room
-        }
+        const userName = urlParams.get('name');
 
-        function addMessage(message) {
-            const li = document.createElement('li');
-            li.textContent = message;
-            messagesList.appendChild(li);
-        }
+        if (roomCode && userName) {
+            socket.emit('joinRoom', roomCode);
 
-        sendMessageButton.addEventListener('click', () => {
-            const message = messageInput.value;
-            if (message && roomCode) {
-                socket.emit('chatMessage', message, roomCode); // Verstuur het bericht naar de server
-                messageInput.value = ''; // Maak het invoerveld leeg
+            function addMessage(message, sender) {
+                const li = document.createElement('li');
+                li.innerHTML = `<strong>${sender}:</strong> ${message}`;
+                messagesList.appendChild(li);
             }
-        });
 
-        socket.on('chatMessage', (message) => {
-            addMessage(message); // Ontvang en toon berichten
-        });
+            sendMessageButton.addEventListener('click', () => {
+                const message = messageInput.value;
+                if (message) {
+                    socket.emit('chatMessage', { message, userName }, roomCode);
+                    messageInput.value = '';
+                }
+            });
+
+            socket.on('chatMessage', ({ message, userName }) => {
+                addMessage(message, userName);
+            });
+        }
     }
-
-    
 });

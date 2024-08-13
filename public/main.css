@@ -43,3 +43,15 @@ button#joinRoom {
 button#joinRoom:hover {
     background-color: #0056b3;
 }
+
+/* Stijl voor de anonieme schuifknop */
+.anonymous-toggle {
+    margin: 10px 0; /* Ruimte boven en onder de toggle */
+    display: flex;
+    align-items: center;
+}
+
+.anonymous-toggle label {
+    margin-right: 10px; /* Ruimte rechts van het label */
+    font-size: 16px; /* Tekstgrootte */
+}

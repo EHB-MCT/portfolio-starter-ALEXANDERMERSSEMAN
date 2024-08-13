@@ -4,15 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Code Room</title>
-  <link rel="stylesheet" href="main.css"> <!-- Zorg ervoor dat het pad correct is -->
+  <link rel="stylesheet" href="main.css">
 </head>
 <body>
   <div class="container">
-    <img src="images/EHB.png" alt="Code Room Title" class="image"> <!-- Gebruik de juiste class-naam -->
-    <input id="roomCode" type="text" placeholder="Enter your year code" /> <!-- Voeg een invoerveld toe met ID 'roomCode' -->
-    <button id="joinRoom">Join your year's chatroom</button> <!-- Gebruik een ID van 'joinRoom' -->
+    <img src="images/EHB.png" alt="Code Room Title" class="image">
+    <input id="roomCode" type="text" placeholder="Enter your year code" />
+    <input id="userName" type="text" placeholder="Enter your name" /> <!-- Invoerveld voor naam -->
+    
+    <div class="anonymous-toggle">
+      <label for="anonymousSwitch">Stay Anonymous</label>
+      <input type="checkbox" id="anonymousSwitch" /> <!-- Schuifknop voor anonieme modus -->
+    </div>
+    
+    <button id="joinRoom">Join your year's chatroom</button>
   </div>
   <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
-  <script src="script.js"></script> <!-- Zorg ervoor dat het pad correct is -->
+  <script src="script.js"></script>
 </body>
 </html>
