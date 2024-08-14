@@ -6,10 +6,6 @@
 /build/
 out/
 
-# Docker files
-**/Dockerfile
-**/docker-compose.yml
-
 # Environment files
 .env
 
