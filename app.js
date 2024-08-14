@@ -8,6 +8,9 @@ require('dotenv').config();
 const app = express();
 const server = http.createServer(app);  // Creëer een HTTP server voor Socket.IO
 const io = new Server(server); // Initialiseer Socket.IO met de server
+const authRoutes = require('./src/routes/authRoutes');
+
+app.use('/api/auth', authRoutes);
 
 // Serve statische bestanden vanuit de 'public' map
 app.use(express.static('public'));
