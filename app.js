@@ -28,13 +28,11 @@ app.get('/test', (req, res) => {
 // Middleware voor het parsen van JSON-verzoeken
 app.use(express.json());
 
-// Verbind met de MongoDB database
 mongoose.connect(process.env.MONGODB_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
+  // Verwijder useNewUrlParser en useUnifiedTopology
 })
-  .then(() => console.log('Connected to MongoDB'))
-  .catch(err => console.error('Database connection error:', err));
+.then(() => console.log('Connected to MongoDB'))
+.catch(err => console.error('Database connection error:', err));
 
 // Gebruik routes vanuit de src/routes map
 app.use('/api', routes); // Prefix alle routes met /api

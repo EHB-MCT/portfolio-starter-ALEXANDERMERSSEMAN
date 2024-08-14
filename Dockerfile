@@ -4,20 +4,17 @@ FROM node:18-alpine AS builder
 # Stel de werkdirectory in
 WORKDIR /usr/src/app
 
-# Kopieer package.json en package-lock.json vanuit de hoofdmap naar de werkdirectory in de image
-COPY ../package*.json ./
+# Kopieer package.json en package-lock.json naar de werkdirectory in de image
+COPY package*.json ./
 
 # Installeer alle npm dependencies
 RUN npm install
 
 # Kopieer de broncode naar de werkdirectory in de image
-COPY ../ ./
+COPY . .
 
 # Stage 2: Production
 FROM node:18-alpine
-
-# Stel de werkdirectory in
-WORKDIR /usr/src/app
 
 # Kopieer alleen de production dependencies vanuit de build stage
 COPY --from=builder /usr/src/app/package*.json ./
