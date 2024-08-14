@@ -10,6 +10,9 @@ const server = http.createServer(app);  // Creëer een HTTP server voor Socket.I
 const io = new Server(server); // Initialiseer Socket.IO met de server
 const authRoutes = require('./src/routes/authRoutes');
 
+// Middleware voor het parsen van JSON-verzoeken
+app.use(express.json());
+
 app.use('/api/auth', authRoutes);
 
 // Serve statische bestanden vanuit de 'public' map
@@ -24,9 +27,6 @@ app.get('/', (req, res) => {
 app.get('/test', (req, res) => {
   res.send('Test route works');
 });
-
-// Middleware voor het parsen van JSON-verzoeken
-app.use(express.json());
 
 mongoose.connect(process.env.MONGODB_URI, {
   // Verwijder useNewUrlParser en useUnifiedTopology

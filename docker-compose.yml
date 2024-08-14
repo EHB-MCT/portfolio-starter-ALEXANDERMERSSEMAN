@@ -1,8 +1,9 @@
 version: '3.8'
+
 services:
   app:
     build:
-      context: . 
+      context: .
       dockerfile: Dockerfile
     ports:
       - "3453:3453"
@@ -12,7 +13,8 @@ services:
       - NODE_ENV=development
       - MONGODB_URI=mongodb://mongo:27017/mydatabase
     depends_on:
-      - mongo
+      mongo:
+        condition: service_healthy
 
   mongo:
     image: mongo:latest
@@ -20,6 +22,11 @@ services:
       - "27017:27017"
     volumes:
       - mongo-data:/data/db
+    healthcheck:
+      test: echo 'db.stats().ok' | mongo localhost:27017/mydatabase --quiet
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
 volumes:
   mongo-data:

@@ -22,13 +22,4 @@ router.post('/login', (req, res) => {
   res.status(401).json({ message: 'Invalid credentials' });
 });
 
-// Voeg routes toe om de lijsten op te halen
-router.get('/students', (req, res) => {
-  res.status(200).json(students);
-});
-
-router.get('/teachers', (req, res) => {
-  res.status(200).json(teachers);
-});
-
 module.exports = router;

@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Code Room</title>
-  <link rel="stylesheet" href="main.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Voeg CSS-bestand toe als je dat wilt -->
 </head>
 <body>
-  <div class="container">
-    <img src="images/EHB.png" alt="Code Room Title" class="image">
-    <input id="roomCode" type="text" placeholder="Enter your year code" />
-    <input id="userName" type="text" placeholder="Enter your name" /> <!-- Invoerveld voor naam -->
-    
-    <div class="anonymous-toggle">
-      <label for="anonymousSwitch">Stay Anonymous</label>
-      <input type="checkbox" id="anonymousSwitch" /> <!-- Schuifknop voor anonieme modus -->
-    </div>
-    
-    <button id="joinRoom">Join your year's chatroom</button>
-  </div>
-  <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
-  <script src="script.js"></script>
+    <h2>Login</h2>
+    <form id="loginForm">
+        <label for="username">Name</label>
+        <input type="text" id="username" name="name" required>
+        
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        
+        <button type="submit">Login</button>
+    </form>
+
+    <div id="error-message" style="color: red;"></div>
+
+    <script src="login.js"></script>
 </body>
 </html>
